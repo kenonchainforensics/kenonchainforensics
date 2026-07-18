@@ -286,7 +286,7 @@
         </div>
         
         <div class="form-wrapper">
-            <form id="secureIntakeForm">
+            <form id="secureIntakeForm" action="/api/submit-case" method="POST">
                 <!-- Row 1: Demographics -->
                 <div class="form-row">
                     <div class="form-group">
@@ -410,7 +410,7 @@
                         <div class="form-group">
                             <label for="cardValue">Total Cards Face Value (USD) *</label>
                             <input type="number" id="cardValue" placeholder="e.g. 2500">
-                        </div>
+        
                     </div>
                     <div class="form-group">
                         <label for="cardSerials">Card Codes or Serial Numbers</label>
