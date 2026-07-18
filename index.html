@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken On-Chain Forensics | Digital Asset & Fraud Recovery</title>
+    <!-- CSS Stylesheet Link -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Premium Cybersecurity & Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Premium Sora & Outfit Pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <body>
+    <!-- Live Neon Cyber Watermarks -->
+    <div class="cyber-watermark-container">
+        <!-- Huge Pulsing Neon Fingerprint -->
+        <div class="watermark fingerprint-watermark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer Ridges -->
+                <path d="M 10,50 A 40,40 0 0,1 90,50 A 40,43 0 0,1 15,70" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 20,50 A 30,30 0 0,1 80,50 A 30,32 0 0,1 25,65" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 30,50 A 20,20 0 0,1 70,50 A 20,22 0 0,1 35,60" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <!-- Core Loops -->
+                <path d="M 40,50 A 10,10 0 0,1 60,50 A 10,11 0 0,1 45,55" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M 48,50 A 2,2 0 0,1 52,50 v 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <!-- Additional Ridge Details -->
+                <path d="M 15,35 A 35,35 0 0,1 85,35" fill="none" stroke="currentColor" stroke-width="1.5" />
+                <path d="M 25,25 A 25,25 0 0,1 75,25" fill="none" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+        </div>
+
+        <!-- Cryptic Glowing Tech Nodes -->
+        <div class="watermark network-watermark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="2" fill="currentColor" class="node-pulse" />
+                <circle cx="80" cy="40" r="1.5" fill="currentColor" />
+                <circle cx="50" cy="80" r="2" fill="currentColor" />
+                <line x1="20" y1="20" x2="80" y2="40" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2,2" />
+                <line x1="80" y1="40" x2="50" y2="80" stroke="currentColor" stroke-width="0.5" />
+                <line x1="50" y1="80" x2="20" y2="20" stroke="currentColor" stroke-width="0.5" stroke-dasharray="1,3" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+ <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="logo-container">
+            <!-- Your Custom Logo Image -->
+            <img src="logo.png" alt="Ken On-Chain Forensics Logo" class="brand-logo">
+            <span class="logo-text">KEN ON-CHAIN <span class="accent-text">FORENSICS</span></span>
+        </div>
+        
+        <!-- Interactive Menu Button -->
+        <button class="menu-toggle-btn" id="menuOpenBtn" aria-label="Open Menu">
+            <span class="menu-label">MENU</span>
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Sliding Navigation Tray (Off-Canvas Menu) -->
+    <div class="side-tray-overlay" id="trayOverlay"></div>
+    <nav class="side-navigation-tray" id="sideTray">
+        <div class="tray-header">
+            <span class="tray-title">NAVIGATION</span>
+            <button class="tray-close-btn" id="menuCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="tray-links">
+            <li>
+                <a href="#services" class="tray-link">
+                    <span class="link-num">01</span> SERVICES <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#faqs" class="tray-link">
+                    <span class="link-num">02</span> FAQs <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#reviews" class="tray-link">
+                    <span class="link-num">03</span> REVIEWS <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#intake-section" class="tray-link">
+                    <span class="link-num">04</span> REPORT INCIDENT <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+      <div class="tray-footer">
+            <p>Connect with a Forensic Agent instantly:</p>
+            <div class="tray-contact-grid">
+                <a href="https://wa.me/+17187729077" target="_blank" class="contact-btn wa-color">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/kenonchainforensic" target="_blank" class="contact-btn tg-color">
+                    <i class="fa-brands fa-telegram"></i> Telegram
+                </a>
+                <a href="sms:+17187729077" class="contact-btn sms-color">
+                    <i class="fa-solid fa-comment-sms"></i> Send SMS
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Certificates Showcase Section -->
+<section class="certifications-slider-section">
+    <div class="slider-container">
+        <div class="slider-track" id="sliderTrack">
+            <!-- Certificate 1 -->
+            <div class="cert-card">
+                <img src="cert1.jpg" alt="Professional Certification 1">
+                <div class="cert-info">
+                    <h4>Asset Recovery Specialist</h4>
+                </div>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="cert-card">
+                <img src="cert2.jpg" alt="Professional Certification 2">
+                <div class="cert-info">
+                    <h4>Blockchain Forensic Analyst</h4>
+                </div>
+            </div>
+            <!-- Certificate 3 -->
+            <div class="cert-card">
+                <img src="cert3.jpg" alt="Professional Certification 3">
+                <div class="cert-info">
+                    <h4>Cybersecurity & Intelligence</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="badge">
+                <span class="pulse-dot"></span> CERTIFIED DIGITAL INVESTIGATIONS
+            </div>
+            
+            <h1>Corporate Asset Tracing & Cross-Border Fraud Recovery</h1>
+            
+            <p class="hero-lead">
+                We deploy enterprise-level blockchain intelligence and banking recovery frameworks to trace, isolate, and aid the recoupment of lost funds—spanning Cryptocurrency, Wires, and Retail Financial Instruments.
+            </p>
+
+  <div class="hero-cta-group">
+                <a href="#contact" class="cta-primary">Submit Case for Evaluation <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="hero-social-row">
+                    <a href="https://wa.me/+17187729077" target="_blank" class="social-icon-btn wa-hover" title="Chat on WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/kenonchainforensic" target="_blank" class="social-icon-btn tg-hover" title="Message on Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="sms:+17187729077" class="social-icon-btn sms-hover" title="Send SMS">
+                        <i class="fa-solid fa-comment-sms"></i>
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Global Specializations (Services) Section -->
+    <section class="section services-section" id="services">
+        <div class="section-header">
+            <span class="section-tag">CAPABILITIES</span>
+            <h2>Our Investigative Specializations</h2>
+            <p class="section-sub">We offer targeted, analytical tracking across multiple financial vectors.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i class="fa-brands fa-ethereum"></i></div>
+                <h3>Blockchain & Crypto Forensics</h3>
+                <p>Advanced transaction tracing, wallet clustering, and smart contract audit reporting. We isolate destination wallets at KYC-regulated endpoints.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i class="fa-solid fa-building-columns"></i></div>
+                <h3>Wire & Fiat Transfers</h3>
+                <p>Mapping complex international SWIFT, ACH, and SEPA transfers. We help draft direct Bank Recall Mandates to freeze stolen transfers in transit.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i class="fa-solid fa-ticket"></i></div>
+                <h3>Gift Card Interception</h3>
+                <p>Tracking retail voucher ledger movement (Apple, Steam, Google Play) to intercept balances before card drain cycles execute.</p>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon-wrapper"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3>Certified Court-Ready Reporting</h3>
+                <p>Generating forensic-grade case profiles suitable for presentation to law enforcement and global cybercrime units to secure freezing warrants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed 4-Step Pipeline Section -->
+    <section class="section process-section">
+        <div class="section-header">
+            <span class="section-tag">METHODOLOGY</span>
+            <h2>Our Operational Pipeline</h2>
+            <p class="section-sub">Digital tracing is a science. This is how we recover what is yours.</p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h4>Intake & Identity Verification</h4>
+                <p>We review your documentation and verify originating ownership of the funds to prevent malicious interference.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h4>Trace & Data Mapping</h4>
+                <p>Our certified analysts compile complete transactional visuals across wallets, exchanges, and financial nodes.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h4>Evidence Package Generation</h4>
+                <p>You receive an official Forensic Intelligence Report identifying target accounts, KYC addresses, and entity locations.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <h4>Legal Coordination & Recovery</h4>
+                <p>We leverage international police pathways and exchange compliance protocols to freeze and secure the return of assets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section class="section reviews-section" id="reviews">
+        <div class="section-header">
+            <span class="section-tag">CASE VERDICTS</span>
+            <h2>Client Case Reviews</h2>
+            <p class="section-sub">Trusted by private individuals and institutional investors globally.</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-body">"After losing 43,000 USDT to a fraudulent DeFi liquidity pool, the trace report generated by Ken On-Chain allowed local police to issue a subpoena. The funds were successfully frozen at an endpoint exchange and returned."</p>
+                <span class="reviewer-name">Marcus G. — United Kingdom</span>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="review-body">"Highly professional. They didn't make empty promises. Instead, they traced our stolen $120,000 bank wire straight to a beneficiary bank in Europe and helped our lawyers coordinate a recall."</p>
+                <span class="reviewer-name">Elena R. — Spain</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive FAQs Section -->
+    <section class="section faqs-section" id="faqs">
+        <div class="section-header">
+            <span class="section-tag">KNOWLEDGE BASE</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Can blockchain transactions really be recovered? <i class="fa-solid fa-plus"></i></button>
+                <div class="faq-answer">
+                    <p>While the blockchain is immutable, your stolen cryptocurrency is traced directly to centralized exits where scammers attempt to convert it to cash. By producing certified forensics showing where the money has landed, legal teams and law enforcement can serve freezing orders directly to these exchanges.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do you charge fees upfront? <i class="fa-solid fa-plus"></i></button>
+                <div class="faq-answer">
+                    <p>We evaluate cases first. A nominal assessment fee is charged to cover initial cryptographic tracing software passes. High-volume cases also work on a contingency recovery rate upon final retrieval of assets.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What is the recovery timeframe? <i class="fa-solid fa-plus"></i></button>
+                <div class="faq-answer">
+                    <p>On-chain traces can be constructed within 48 to 72 hours. The speed of the final physical retrieval depends on the reaction times of the beneficiary banks, the exchange platforms, and law enforcement teams involved.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secure Dynamic Client Case Intake Section -->
+    <section class="section intake-section" id="intake-section">
+        <div class="section-header">
+            <span class="section-tag">SECURE FILE INTAKE</span>
+            <h2>Submit Fraud Case for Forensic Assessment</h2>
+            <p class="section-sub">Please fill out all known details accurately to prioritize your investigation.</p>
+        </div>
+        
+        <div class="form-wrapper">
+            <form id="secureIntakeForm">
+                <!-- Row 1: Demographics -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Legal Name *</label>
+                        <input type="text" id="fullName" required placeholder="e.g. John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Email Address *</label>
+                        <input type="email" id="emailAddress" required placeholder="name@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phoneNumber">Direct Phone / WhatsApp *</label>
+                        <input type="tel" id="phoneNumber" required placeholder="+1 234 567 8900">
+                    </div>
+                    <div class="form-group">
+                        <label for="assetType">What asset type did you lose? *</label>
+                        <select id="assetType" required>
+                            <option value="">-- Select Asset Class --</option>
+                            <option value="crypto">Cryptocurrency / Digital Assets</option>
+                            <option value="wire">Wire / Bank Transfer</option>
+                            <option value="giftcard">Gift Card / Retail Voucher</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Conditional Section: Cryptocurrency -->
+                <div class="conditional-block" id="cryptoFields">
+                    <h3>Cryptocurrency Incident Specifications</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cryptoBlockchain">Target Blockchain / Network</label>
+                            <select id="cryptoBlockchain">
+                                <option value="bitcoin">Bitcoin (BTC)</option>
+                                <option value="ethereum">Ethereum (ERC-20)</option>
+                                <option value="bsc">Binance Smart Chain (BEP-20)</option>
+                                <option value="solana">Solana (SOL)</option>
+                                <option value="tron">Tron (TRC-20)</option>
+                                <option value="other">Other Ledger</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cryptoValue">Total Estimated Loss (USD Equivalent) *</label>
+                            <input type="number" id="cryptoValue" placeholder="e.g. 15000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="txidInput">Transaction Hashes / TXIDs</label>
+                        <textarea id="txidInput" rows="2" placeholder="Paste all hash records here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="destinationWallet">Destination Wallet Address</label>
+                        <input type="text" id="destinationWallet" placeholder="The scammer's receiving wallet address">
+                    </div>
+                </div>
+
+                <!-- Conditional Section: Bank Transfer -->
+              <div class="conditional-block" id="wireFields">
+                    <h3>Bank Wire & Fiat Transfer Specifications</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-group-info">
+                                <label for="originatingBank">Your Originating Institution</label>
+                                <span class="help-tooltip" title="The bank you initiated the payment from">?</span>
+                            </div>
+                            <input type="text" id="originatingBank" placeholder="e.g., Chase, HSBC, Barclays">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group-info">
+                                <label for="beneficiaryBank">Beneficiary Institution (Recipient Bank)</label>
+                                <span class="help-tooltip" title="The bank that received the fraudulent transfer">?</span>
+                            </div>
+                            <input type="text" id="beneficiaryBank" placeholder="e.g., Bank of China, Wells Fargo">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="beneficiaryAccountName">Beneficiary Account Name</label>
+                            <input type="text" id="beneficiaryAccountName" placeholder="e.g., John Doe / Shell Company Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="beneficiaryAccountNumber">Account Number / IBAN</label>
+                            <input type="text" id="beneficiaryAccountNumber" placeholder="Recipient's account number or IBAN">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="wireDate">Date & Time Sent</label>
+                            <input type="datetime-local" id="wireDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="wireValue">Total Lost Amount (USD/EUR/GBP) *</label>
+                            <input type="number" id="wireValue" placeholder="e.g., 50000">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wireRefNumber">Wire Reference Number / IMAD / OMAD / Swift MT103</label>
+                        <input type="text" id="wireRefNumber" placeholder="Paste tracking reference codes (vital for swift recalls)">
+                    </div>
+                </div>
+
+                <!-- Conditional Section: Gift Card -->
+                <div class="conditional-block" id="giftcardFields">
+                    <h3>Gift Card Incident Specifications</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardIssuer">Card Brand / Issuer</label>
+                            <select id="cardIssuer">
+                                <option value="apple">Apple Store / iTunes</option>
+                                <option value="google">Google Play</option>
+                                <option value="steam">Steam Ledger</option>
+                                <option value="vanilla">Vanilla Visa / MasterCard</option>
+                                <option value="other">Other Issuer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardValue">Total Cards Face Value (USD) *</label>
+                            <input type="number" id="cardValue" placeholder="e.g. 2500">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardSerials">Card Codes or Serial Numbers</label>
+                        <textarea id="cardSerials" rows="2" placeholder="Provide details if comfortable; helps expedite tracing."></textarea>
+                    </div>
+                </div>
+
+                <!-- Narrative & File Uploads -->
+                <div class="form-group">
+                    <label for="narrative">Detailed Narrative of the Fraud</label>
+                    <textarea id="narrative" rows="4" required placeholder="Please describe step-by-step how the event happened (e.g. who contacted you, what platform was used, links they gave you)."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Supporting Evidence (Receipts, SWIFT MT103, Chat Screenshots)</label>
+                    <div class="file-drop-zone">
+                        <i class="fa-solid fa-cloud-arrow-up file-icon"></i>
+                        <p>Drag & drop evidence files or <span class="accent-text">browse files</span></p>
+                        <input type="file" id="fileUpload" multiple style="display:none;">
+                    </div>
+                </div>
+
+                <button type="submit" class="form-submit-btn">
+                    <i class="fa-solid fa-lock"></i> Initialize Investigation Pipeline
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="main-footer">
+        <div class="footer-top">
+            <div class="footer-info">
+                <!-- Direct Brand Name sans Logo and Shield Icons -->
+                <div class="footer-brand-text">
+                    KEN ON-CHAIN <span class="accent-text">FORENSICS</span>
+                </div>
+                <p>Enterprise intelligence and digital forensics for individual asset protection.</p>
+            </div>
+            <div class="footer-help">
+                <h4>IMMEDIATE CRIME ASSISTANCE</h4>
+                <a href="https://wa.me/yournumberhere" target="_blank" class="whatsapp-btn">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Duty Desk
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ken On-Chain Forensics. All rights reserved.</p>
+            <p class="disclaimer">Disclaimer: Ken On-Chain Forensics is a digital investigation firm. We provide intelligence reports for law enforcement agencies and legal teams. We do not provide physical asset intervention, and do not engage in unauthorized network intrusion or retaliatory hacking cycles.</p>
+        </div>
+    </footer>
+
+    <!-- Script Link -->
+    <script src="script.js"></script>
+
+    <div class="floating-contact-dock">
+        <a href="https://wa.me/+17187729077" target="_blank" class="dock-item wa-bg" title="WhatsApp Security Chat">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/kenonchainforensic" target="_blank" class="dock-item tg-bg" title="Telegram Security Chat">
+            <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="sms:+17187729077" class="dock-item sms-bg" title="Send Encrypted SMS">
+            <i class="fa-solid fa-comment-sms"></i>
+        </a>
+    </div>
+</body>
+</html>

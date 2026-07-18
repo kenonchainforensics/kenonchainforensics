@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This line tells the browser to automatically redirect to index.html after 15 seconds -->
+    <meta http-equiv="refresh" content="15;url=index.html">
+    <title>Intake Received | Ken On-Chain Forensics</title>
+    <style>
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background: #111827;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1f2937;
+            max-width: 550px;
+            width: 90%;
+        }
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem auto;
+            border: 1px solid #10b981;
+        }
+        .icon {
+            font-size: 2.5rem;
+            color: #10b981;
+            line-height: 1;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        p {
+            color: #9ca3af;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .highlight {
+            color: #00ffcc;
+            font-weight: 600;
+        }
+        .countdown-text {
+            font-size: 0.95rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            border-top: 1px solid #1f2937;
+            padding-top: 1.5rem;
+        }
+        #timer {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-wrapper">
+            <span class="icon">✓</span>
+        </div>
+        <h1>Pipeline Initialized Successfully</h1>
+        
+        <p>Your case intake dossier has been securely logged into our system.</p>
+        
+        <p>A <span class="highlight">confirmation mail</span> is being dispatched to your email address. Our team is reviewing the assets, and the <span class="highlight">investigation will commence</span> shortly.</p>
+        
+        <p>All subsequent briefs, updates, and discovery reports will be sent directly across to your provided contact details.</p>
+        
+        <!-- Visual countdown timer for the user -->
+        <div class="countdown-text">
+            Returning to the startup page automatically in <span id="timer">15</span> seconds...
+        </div>
+    </div>
+
+    <script>
+        // Simple script to make the text countdown visually change every second
+        let seconds = 15;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
