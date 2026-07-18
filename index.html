@@ -277,167 +277,167 @@
         </div>
     </section>
 
-    <!-- Secure Dynamic Client Case Intake Section -->
-    <section class="section intake-section" id="intake-section">
-        <div class="section-header">
-            <span class="section-tag">SECURE FILE INTAKE</span>
-            <h2>Submit Fraud Case for Forensic Assessment</h2>
-            <p class="section-sub">Please fill out all known details accurately to prioritize your investigation.</p>
-        </div>
-        
-        <div class="form-wrapper">
-            <form id="secureIntakeForm" action="/api/submit-case" method="POST">
-                <!-- Row 1: Demographics -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullName">Full Legal Name *</label>
-                        <input type="text" id="fullName" required placeholder="e.g. John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="emailAddress">Email Address *</label>
-                        <input type="email" id="emailAddress" required placeholder="name@example.com">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phoneNumber">Direct Phone / WhatsApp *</label>
-                        <input type="tel" id="phoneNumber" required placeholder="+1 234 567 8900">
-                    </div>
-                    <div class="form-group">
-                        <label for="assetType">What asset type did you lose? *</label>
-                        <select id="assetType" required>
-                            <option value="">-- Select Asset Class --</option>
-                            <option value="crypto">Cryptocurrency / Digital Assets</option>
-                            <option value="wire">Wire / Bank Transfer</option>
-                            <option value="giftcard">Gift Card / Retail Voucher</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Conditional Section: Cryptocurrency -->
-                <div class="conditional-block" id="cryptoFields">
-                    <h3>Cryptocurrency Incident Specifications</h3>
+   <!-- Secure Dynamic Client Case Intake Section -->
+        <section class="section intake-section" id="intake-section">
+            <div class="section-header">
+                <span class="section-tag">SECURE FILE INTAKE</span>
+                <h2>Submit Fraud Case for Forensic Assessment</h2>
+                <p class="section-sub">Please fill out all known details accurately to prioritize your investigation.</p>
+            </div>
+            
+            <div class="form-wrapper">
+                <form id="secureIntakeForm" action="/api/submit-case" method="POST">
+                    <!-- Row 1: Demographics -->
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="cryptoBlockchain">Target Blockchain / Network</label>
-                            <select id="cryptoBlockchain">
-                                <option value="bitcoin">Bitcoin (BTC)</option>
-                                <option value="ethereum">Ethereum (ERC-20)</option>
-                                <option value="bsc">Binance Smart Chain (BEP-20)</option>
-                                <option value="solana">Solana (SOL)</option>
-                                <option value="tron">Tron (TRC-20)</option>
-                                <option value="other">Other Ledger</option>
+                            <label for="fullName">Full Legal Name *</label>
+                            <input type="text" id="fullName" required placeholder="e.g. John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address *</label>
+                            <input type="email" id="emailAddress" required placeholder="name@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phoneNumber">Direct Phone / WhatsApp *</label>
+                            <input type="tel" id="phoneNumber" required placeholder="+1 234 567 8900">
+                        </div>
+                        <div class="form-group">
+                            <label for="assetType">What asset type did you lose? *</label>
+                            <select id="assetType" required>
+                                <option value="">-- Select Asset Class --</option>
+                                <option value="crypto">Cryptocurrency / Digital Assets</option>
+                                <option value="wire">Wire / Bank Transfer</option>
+                                <option value="giftcard">Gift Card / Retail Voucher</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="cryptoValue">Total Estimated Loss (USD Equivalent) *</label>
-                            <input type="number" id="cryptoValue" placeholder="e.g. 15000">
-                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="txidInput">Transaction Hashes / TXIDs</label>
-                        <textarea id="txidInput" rows="2" placeholder="Paste all hash records here..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="destinationWallet">Destination Wallet Address</label>
-                        <input type="text" id="destinationWallet" placeholder="The scammer's receiving wallet address">
-                    </div>
-                </div>
 
-                <!-- Conditional Section: Bank Transfer -->
-              <div class="conditional-block" id="wireFields">
-                    <h3>Bank Wire & Fiat Transfer Specifications</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <div class="form-group-info">
-                                <label for="originatingBank">Your Originating Institution</label>
-                                <span class="help-tooltip" title="The bank you initiated the payment from">?</span>
+                    <!-- Conditional Section: Cryptocurrency -->
+                    <div class="conditional-block" id="cryptoFields">
+                        <h3>Cryptocurrency Incident Specifications</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cryptoBlockchain">Target Blockchain / Network</label>
+                                <select id="cryptoBlockchain">
+                                    <option value="bitcoin">Bitcoin (BTC)</option>
+                                    <option value="ethereum">Ethereum (ERC-20)</option>
+                                    <option value="bsc">Binance Smart Chain (BEP-20)</option>
+                                    <option value="solana">Solana (SOL)</option>
+                                    <option value="tron">Tron (TRC-20)</option>
+                                    <option value="other">Other Ledger</option>
+                                </select>
                             </div>
-                            <input type="text" id="originatingBank" placeholder="e.g., Chase, HSBC, Barclays">
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group-info">
-                                <label for="beneficiaryBank">Beneficiary Institution (Recipient Bank)</label>
-                                <span class="help-tooltip" title="The bank that received the fraudulent transfer">?</span>
+                            <div class="form-group">
+                                <label for="cryptoValue">Total Estimated Loss (USD Equivalent) *</label>
+                                <input type="number" id="cryptoValue" placeholder="e.g. 15000">
                             </div>
-                            <input type="text" id="beneficiaryBank" placeholder="e.g., Bank of China, Wells Fargo">
+                        </div>
+                        <div class="form-group">
+                            <label for="txidInput">Transaction Hashes / TXIDs</label>
+                            <textarea id="txidInput" rows="2" placeholder="Paste all hash records here..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="destinationWallet">Destination Wallet Address</label>
+                            <input type="text" id="destinationWallet" placeholder="The scammer's receiving wallet address">
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="beneficiaryAccountName">Beneficiary Account Name</label>
-                            <input type="text" id="beneficiaryAccountName" placeholder="e.g., John Doe / Shell Company Name">
+                    <!-- Conditional Section: Bank Transfer -->
+                    <div class="conditional-block" id="wireFields">
+                        <h3>Bank Wire & Fiat Transfer Specifications</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <div class="form-group-info">
+                                    <label for="originatingBank">Your Originating Institution</label>
+                                    <span class="help-tooltip" title="The bank you initiated the payment from">?</span>
+                                </div>
+                                <input type="text" id="originatingBank" placeholder="e.g., Chase, HSBC, Barclays">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group-info">
+                                    <label for="beneficiaryBank">Beneficiary Institution (Recipient Bank)</label>
+                                    <span class="help-tooltip" title="The bank that received the fraudulent transfer">?</span>
+                                </div>
+                                <input type="text" id="beneficiaryBank" placeholder="e.g., Bank of China, Wells Fargo">
+                            </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="beneficiaryAccountName">Beneficiary Account Name</label>
+                                <input type="text" id="beneficiaryAccountName" placeholder="e.g., John Doe / Shell Company Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="beneficiaryAccountNumber">Account Number / IBAN</label>
+                                <input type="text" id="beneficiaryAccountNumber" placeholder="Recipient's account number or IBAN">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="wireDate">Date & Time Sent</label>
+                                <input type="datetime-local" id="wireDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="wireValue">Total Lost Amount (USD/EUR/GBP) *</label>
+                                <input type="number" id="wireValue" placeholder="e.g., 50000">
+                            </div>
+                        </div>
+
                         <div class="form-group">
-                            <label for="beneficiaryAccountNumber">Account Number / IBAN</label>
-                            <input type="text" id="beneficiaryAccountNumber" placeholder="Recipient's account number or IBAN">
+                            <label for="wireRefNumber">Wire Reference Number / IMAD / OMAD / Swift MT103</label>
+                            <input type="text" id="wireRefNumber" placeholder="Paste tracking reference codes (vital for swift recalls)">
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="wireDate">Date & Time Sent</label>
-                            <input type="datetime-local" id="wireDate">
+                    <!-- Conditional Section: Gift Card -->
+                    <div class="conditional-block" id="giftcardFields">
+                        <h3>Gift Card Incident Specifications</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cardIssuer">Card Brand / Issuer</label>
+                                <select id="cardIssuer">
+                                    <option value="apple">Apple Store / iTunes</option>
+                                    <option value="google">Google Play</option>
+                                    <option value="steam">Steam Ledger</option>
+                                    <option value="vanilla">Vanilla Visa / MasterCard</option>
+                                    <option value="other">Other Issuer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cardValue">Total Cards Face Value (USD) *</label>
+                                <input type="number" id="cardValue" placeholder="e.g. 2500">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="wireValue">Total Lost Amount (USD/EUR/GBP) *</label>
-                            <input type="number" id="wireValue" placeholder="e.g., 50000">
+                            <label for="cardSerials">Card Codes or Serial Numbers</label>
+                            <textarea id="cardSerials" rows="2" placeholder="Provide details if comfortable; helps expedite tracing."></textarea>
                         </div>
+                    </div>
+
+                    <!-- Narrative & File Uploads -->
+                    <div class="form-group">
+                        <label for="narrative">Detailed Narrative of the Fraud</label>
+                        <textarea id="narrative" rows="4" required placeholder="Please describe step-by-step how the event happened (e.g. who contacted you, what platform was used, links they gave you)."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="wireRefNumber">Wire Reference Number / IMAD / OMAD / Swift MT103</label>
-                        <input type="text" id="wireRefNumber" placeholder="Paste tracking reference codes (vital for swift recalls)">
-                    </div>
-                </div>
-
-                <!-- Conditional Section: Gift Card -->
-                <div class="conditional-block" id="giftcardFields">
-                    <h3>Gift Card Incident Specifications</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="cardIssuer">Card Brand / Issuer</label>
-                            <select id="cardIssuer">
-                                <option value="apple">Apple Store / iTunes</option>
-                                <option value="google">Google Play</option>
-                                <option value="steam">Steam Ledger</option>
-                                <option value="vanilla">Vanilla Visa / MasterCard</option>
-                                <option value="other">Other Issuer</option>
-                            </select>
+                        <label>Upload Supporting Evidence (Receipts, SWIFT MT103, Chat Screenshots)</label>
+                        <div class="file-drop-zone">
+                            <i class="fa-solid fa-cloud-arrow-up file-icon"></i>
+                            <p>Drag & drop evidence files or <span class="accent-text">browse files</span></p>
+                            <input type="file" id="fileUpload" multiple style="display:none;">
                         </div>
-                        <div class="form-group">
-                            <label for="cardValue">Total Cards Face Value (USD) *</label>
-                            <input type="number" id="cardValue" placeholder="e.g. 2500">
-        
                     </div>
-                    <div class="form-group">
-                        <label for="cardSerials">Card Codes or Serial Numbers</label>
-                        <textarea id="cardSerials" rows="2" placeholder="Provide details if comfortable; helps expedite tracing."></textarea>
-                    </div>
-                </div>
 
-                <!-- Narrative & File Uploads -->
-                <div class="form-group">
-                    <label for="narrative">Detailed Narrative of the Fraud</label>
-                    <textarea id="narrative" rows="4" required placeholder="Please describe step-by-step how the event happened (e.g. who contacted you, what platform was used, links they gave you)."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Upload Supporting Evidence (Receipts, SWIFT MT103, Chat Screenshots)</label>
-                    <div class="file-drop-zone">
-                        <i class="fa-solid fa-cloud-arrow-up file-icon"></i>
-                        <p>Drag & drop evidence files or <span class="accent-text">browse files</span></p>
-                        <input type="file" id="fileUpload" multiple style="display:none;">
-                    </div>
-                </div>
-
-                <button type="submit" class="form-submit-btn">
-                    <i class="fa-solid fa-lock"></i> Initialize Investigation Pipeline
-                </button>
-            </form>
-        </div>
+                    <button type="submit" class="form-submit-btn">
+                        <i class="fa-solid fa-lock"></i> Initialize Investigation Pipeline
+                    </button>
+                </form>
+            </div>
     </section>
 
     <!-- Footer Area -->

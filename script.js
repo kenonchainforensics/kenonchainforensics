@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
             
             // Redirect to the new tracking page
-            window.location.href = `tracker.html?caseId=${trackingId}`;
+            window.location.href = `success.html?caseId=${trackingId}`;
         });
     }
 
