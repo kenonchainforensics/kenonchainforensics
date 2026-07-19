@@ -181,8 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to dispatch background intake telemetry:', err);
             }
             
-            // Explicit alert and final redirection execution
-          //  alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
+            // Explicit alert and final redirection execution (Alert removed)
             window.location.href = `success.html?caseId=${trackingId}`;
         });
     }
