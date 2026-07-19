@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        0. Automated Visitor Notification (URL MATCHED TO BACKEND)
        ========================================================================== */
-    fetch('/api/notify-visits', {
+    fetch('/api/notify-visit', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
