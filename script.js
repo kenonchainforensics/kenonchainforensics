@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Explicit alert and final redirection execution
-            alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
+          //  alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
             window.location.href = `success.html?caseId=${trackingId}`;
         });
     }
