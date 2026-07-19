@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   /* ==========================================================================
-       5. Form Submit Capture (Redirecting to Tracker & Sending Email)
+  /* ==========================================================================
+       5. Form Submit Capture (Explicit Direct Field Pull Fix)
        ========================================================================== */
     const secureForm = document.getElementById('secureIntakeForm');
     
@@ -125,17 +125,29 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const trackingId = "KEN-" + Math.floor(100000 + Math.random() * 900000);
             
-            // Gather all data natively from the form inputs
-            const formDataObj = { caseId: trackingId };
-            const formData = new FormData(secureForm);
-            formData.forEach((value, key) => {
-                formDataObj[key] = value;
+            // Build the data object explicitly by targeting your form element IDs
+            const formDataObj = { 
+                caseId: trackingId,
+                assetType: document.getElementById('assetType')?.value || 'Not provided',
+                fullName: document.getElementById('fullName')?.value || document.querySelector('input[type="text"]')?.value || 'Not provided',
+                emailAddress: document.getElementById('email')?.value || document.querySelector('input[type="email"]')?.value || 'Not provided',
+                // Add any other specific field IDs you have below using the same format:
+                // details: document.getElementById('yourFieldID')?.value || 'Not provided'
+            };
+            
+            // Fallback layout loop: capture any other standard input element just in case
+            const inputs = secureForm.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                const key = input.name || input.id;
+                if (key && !formDataObj[key] && input.value) {
+                    formDataObj[key] = input.value;
+                }
             });
             
             // Set up initial state in localStorage for the client tracker dashboard
             const initialCaseData = {
                 caseId: trackingId,
-                asset: formDataObj['assetType'] || 'Crypto Asset',
+                asset: formDataObj.assetType,
                 currentStep: 1, 
                 progressPercent: 15,
                 logs: [
@@ -146,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             localStorage.setItem('activeCase', JSON.stringify(initialCaseData));
 
-            // Fire the background email notification to your inbox
+            // Fire the background email notification
             try {
                 await fetch('/api/submit-case', {
                     method: 'POST',
