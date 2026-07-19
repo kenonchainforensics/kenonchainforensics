@@ -1,6 +1,9 @@
-// Automatically trigger a notification when someone visits the site
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/api/notify-visit', {
+    
+    /* ==========================================================================
+       0. Automated Visitor Notification (URL MATCHED TO BACKEND)
+       ========================================================================== */
+    fetch('/api/notify-visits', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -9,10 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             referrer: document.referrer || 'Direct Visit',
             timestamp: new Date().toISOString()
         })
-    }).catch(err => console.log('Notification skipped')); // Fails silently so it never breaks the site layout
-});
-document.addEventListener('DOMContentLoaded', () => {
-    
+    }).catch(err => console.log('Notification skipped'));
+
     /* ==========================================================================
        1. Sliding Drawer Menu Control
        ========================================================================== */
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sideTray && trayOverlay) {
             sideTray.classList.add('active');
             trayOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Lock scrolling behind tray
+            document.body.style.overflow = 'hidden'; 
         }
     };
 
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sideTray && trayOverlay) {
             sideTray.classList.remove('active');
             trayOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // Restore background scrolling
+            document.body.style.overflow = ''; 
         }
     };
 
@@ -42,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeTray);
     if (trayOverlay) trayOverlay.addEventListener('click', closeTray);
 
-    // Close tray when any menu link inside it is clicked
     trayLinks.forEach(link => {
         link.addEventListener('click', closeTray);
     });
@@ -56,10 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
             
-            // Toggle active status
             faqItem.classList.toggle('active');
             
-            // Close other items if one is opened
             faqQuestions.forEach(otherQuestion => {
                 const otherItem = otherQuestion.parentElement;
                 if (otherItem !== faqItem) {
@@ -70,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* ==========================================================================
-       3. Dynamic Case Intake Conditional Logic (BUG FIXED)
+       3. Dynamic Case Intake Conditional Logic
        ========================================================================== */
     const assetTypeSelect = document.getElementById('assetType');
     const cryptoBlock = document.getElementById('cryptoFields');
@@ -81,16 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
         assetTypeSelect.addEventListener('change', (e) => {
             const selectedValue = e.target.value;
 
-            // Hide all conditional blocks initially
             cryptoBlock.style.display = 'none';
             wireBlock.style.display = 'none';
             giftcardBlock.style.display = 'none';
 
-            // Toggle visibility based on selection (Corrected block routing)
             if (selectedValue === 'crypto') {
                 cryptoBlock.style.display = 'block';
             } else if (selectedValue === 'wire') {
-                wireBlock.style.display = 'block'; // FIXED: Changed from cryptoBlock to wireBlock
+                wireBlock.style.display = 'block'; 
             } else if (selectedValue === 'giftcard') {
                 giftcardBlock.style.display = 'block';
             }
@@ -98,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       4. Simulated Drag and Drop File Selection Visual Trigger
+       4. Simulated Drag and Drop File Selection
        ========================================================================== */
     const dropZone = document.querySelector('.file-drop-zone');
     const fileInput = document.getElementById('fileUpload');
@@ -118,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   /* ==========================================================================
+    /* ==========================================================================
        5. Form Submit Capture (Redirecting to Tracker)
        ========================================================================== */
     const secureForm = document.getElementById('secureIntakeForm');
@@ -127,58 +123,46 @@ document.addEventListener('DOMContentLoaded', () => {
         secureForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Generate a professional-looking tracking ID
             const trackingId = "KEN-" + Math.floor(100000 + Math.random() * 900000);
-            
-            // Collect basic details to personalize the tracker
             const assetType = document.getElementById('assetType')?.value || 'Crypto Asset';
             
-            // Set up initial state in localStorage for this case
             const initialCaseData = {
                 caseId: trackingId,
                 asset: assetType,
-                currentStep: 1, // Start at step 1: Initialization
+                currentStep: 1, 
                 progressPercent: 15,
                 logs: [
                     { time: new Date().toLocaleTimeString(), text: "Secure telemetry pipeline successfully initialized." },
                     { time: new Date().toLocaleTimeString(), text: "Case dossier registered in local analytical memory index." }
                 ],
-                toolLink: "https://your-purchase-tool-link.com" // Default link
+                toolLink: "https://your-purchase-tool-link.com" 
             };
             
-            // Save to browser memory
             localStorage.setItem('activeCase', JSON.stringify(initialCaseData));
-            
             alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
-            
-            // Redirect to the new tracking page
             window.location.href = `success.html?caseId=${trackingId}`;
         });
     }
 
     /* ==========================================================================
-       6. Certificate 3D Rotating Slider (Cleanly Integrated)
+       6. Certificate 3D Rotating Slider
        ========================================================================== */
     const cards = document.querySelectorAll(".cert-card");
     let currentIndex = 0;
-    const intervalTime = 3500; // Time in milliseconds for each transition (3.5 seconds)
+    const intervalTime = 3500; 
 
     function updateSlider() {
         const totalCards = cards.length;
         if (totalCards === 0) return;
 
         cards.forEach((card, index) => {
-            // Remove previous positioning classes safely
             card.className = "cert-card";
 
             if (index === currentIndex) {
-                // The current card goes to the center (sharp focus)
                 card.classList.add("active");
             } else if (index === (currentIndex - 1 + totalCards) % totalCards) {
-                // The previous card goes to the left side (blurred)
                 card.classList.add("left-side");
             } else if (index === (currentIndex + 1) % totalCards) {
-                // The next card goes to the right side (blurred)
                 card.classList.add("right-side");
             }
         });
@@ -191,13 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initialize the starting layout
     updateSlider();
-
-    // Start the automatic infinity loop
     let sliderInterval = setInterval(nextSlide, intervalTime);
 
-    // Pause rotation when the cursor hovers over the slider
     const sliderContainer = document.querySelector(".slider-container");
     if (sliderContainer) {
         sliderContainer.addEventListener("mouseenter", () => {
