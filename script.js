@@ -1,3 +1,16 @@
+// Automatically trigger a notification when someone visits the site
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/notify-visit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 
+            referrer: document.referrer || 'Direct Visit',
+            timestamp: new Date().toISOString()
+        })
+    }).catch(err => console.log('Notification skipped')); // Fails silently so it never breaks the site layout
+});
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================================================
