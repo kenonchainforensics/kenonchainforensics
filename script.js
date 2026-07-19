@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-  /* ==========================================================================
-       5. Form Submit Capture (Explicit Direct Field Pull Fix)
+ /* ==========================================================================
+       5. Form Submit Capture (Safe Redirect & File Name Fix)
        ========================================================================== */
     const secureForm = document.getElementById('secureIntakeForm');
     
@@ -130,17 +130,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 caseId: trackingId,
                 assetType: document.getElementById('assetType')?.value || 'Not provided',
                 fullName: document.getElementById('fullName')?.value || document.querySelector('input[type="text"]')?.value || 'Not provided',
-                emailAddress: document.getElementById('email')?.value || document.querySelector('input[type="email"]')?.value || 'Not provided',
-                // Add any other specific field IDs you have below using the same format:
-                // details: document.getElementById('yourFieldID')?.value || 'Not provided'
+                emailAddress: document.getElementById('email')?.value || document.querySelector('input[type="email"]')?.value || 'Not provided'
             };
             
-            // Fallback layout loop: capture any other standard input element just in case
+            // Capture standard input elements and track file names safely as text strings
             const inputs = secureForm.querySelectorAll('input, select, textarea');
             inputs.forEach(input => {
                 const key = input.name || input.id;
-                if (key && !formDataObj[key] && input.value) {
-                    formDataObj[key] = input.value;
+                if (key && !formDataObj[key]) {
+                    if (input.type === 'file') {
+                        // Capture the names of the files selected instead of breaking the JSON payload
+                        const files = input.files;
+                        if (files && files.length > 0) {
+                            const fileNames = Array.from(files).map(f => f.name).join(', ');
+                            formDataObj[key] = `[Uploaded Files: ${fileNames}]`;
+                        } else {
+                            formDataObj[key] = 'No file uploaded';
+                        }
+                    } else if (input.value) {
+                        formDataObj[key] = input.value;
+                    }
                 }
             });
             
@@ -158,7 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             localStorage.setItem('activeCase', JSON.stringify(initialCaseData));
 
-            // Fire the background email notification
+            // Fire the background email notification inside a try/catch block
+            // Even if the email script drops, the user will still be safely redirected
             try {
                 await fetch('/api/submit-case', {
                     method: 'POST',
@@ -171,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to dispatch background intake telemetry:', err);
             }
             
+            // Explicit alert and final redirection execution
             alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
             window.location.href = `success.html?caseId=${trackingId}`;
         });
