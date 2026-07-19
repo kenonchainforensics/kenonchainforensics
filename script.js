@@ -114,21 +114,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ==========================================================================
-       5. Form Submit Capture (Redirecting to Tracker)
+   /* ==========================================================================
+       5. Form Submit Capture (Redirecting to Tracker & Sending Email)
        ========================================================================== */
     const secureForm = document.getElementById('secureIntakeForm');
     
     if (secureForm) {
-        secureForm.addEventListener('submit', (e) => {
+        secureForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const trackingId = "KEN-" + Math.floor(100000 + Math.random() * 900000);
-            const assetType = document.getElementById('assetType')?.value || 'Crypto Asset';
             
+            // Gather all data natively from the form inputs
+            const formDataObj = { caseId: trackingId };
+            const formData = new FormData(secureForm);
+            formData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+            
+            // Set up initial state in localStorage for the client tracker dashboard
             const initialCaseData = {
                 caseId: trackingId,
-                asset: assetType,
+                asset: formDataObj['assetType'] || 'Crypto Asset',
                 currentStep: 1, 
                 progressPercent: 15,
                 logs: [
@@ -137,8 +144,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 toolLink: "https://your-purchase-tool-link.com" 
             };
-            
             localStorage.setItem('activeCase', JSON.stringify(initialCaseData));
+
+            // Fire the background email notification to your inbox
+            try {
+                await fetch('/api/submit-case', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObj)
+                });
+            } catch (err) {
+                console.error('Failed to dispatch background intake telemetry:', err);
+            }
+            
             alert(`Dossier accepted. Redirecting to secure tracking pipeline for Case ID: ${trackingId}`);
             window.location.href = `success.html?caseId=${trackingId}`;
         });
